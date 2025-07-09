@@ -25,25 +25,58 @@ static void OutPut(const char *str) {
     std::cout << str << std::endl;
 }
 
+enum levels {
+    DEBUG,
+    INFO,
+    WARNING,
+    ERROR,
+    INVALID
+};
+
+levels getLevel(const std::string &level) {
+    if (level == "DEBUG") return DEBUG;
+    if (level == "INFO") return INFO;
+    if (level == "WARNING") return WARNING;
+    if (level == "ERROR") return ERROR;
+    return INVALID;
+}
+
 void Harl::complain(std::string level) {
+    int start = getLevel(level);
+
+    if (start == INVALID) {
+        std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+        return;
+    }
+
     void (Harl::*functions[])() = {
         &Harl::debug,
         &Harl::info,
         &Harl::warning,
         &Harl::error
     };
-    for (int i = 0; i < 4; ++i) {
-        const std::string levels[] = {
-            "DEBUG",
-            "INFO",
-            "WARNING",
-            "ERROR"
-        };
-        if (levels[i] == level) {
-            std::cout << "[ " << levels[i] << " ]" << std::endl;
-            (this->*functions[i])();
-            return;
-        }
+    switch (start) {
+        case DEBUG:
+            std::cout << "[ DEBUG ]" << std::endl;
+            (this->*functions[DEBUG])();
+            complain(std::string("INFO"));
+            break;
+        case INFO:
+            std::cout << "[ INFO ]" << std::endl;
+            (this->*functions[INFO])();
+            complain(std::string("WARNING"));
+            break;
+        case WARNING:
+            std::cout << "[ WARNING ]" << std::endl;
+            (this->*functions[WARNING])();
+            complain(std::string("ERROR"));
+            break;
+        case ERROR:
+            std::cout << "[ ERROR ]" << std::endl;
+            (this->*functions[ERROR])();
+            break;
+        default:
+            break;
     }
 }
 
