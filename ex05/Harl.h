@@ -5,12 +5,15 @@
 class Harl {
 public:
     Harl();
+
     ~Harl();
 
-    Harl(const Harl&);
-    Harl& operator=(const Harl&);
+    Harl(const Harl &);
+
+    Harl &operator=(const Harl &);
 
     void complain(std::string level);
+
 private:
     void debug();
 
@@ -20,7 +23,7 @@ private:
 
     void error();
 
-    void copyFrom(const Harl&);
+    void copyFrom(const Harl &);
 
     void cleanUp();
 };

@@ -6,20 +6,14 @@
 
 class HumanA {
 public:
-    HumanA();
     ~HumanA();
-
-    HumanA(const HumanA&);
-    HumanA(const std::string& name, const Weapon& weapon);
-    HumanA& operator=(const HumanA&);
+    HumanA(const std::string& name, Weapon &weapon);
 
     void attack() const;
 
 private:
     std::string _name;
-    const Weapon* _weapon;
-    void copyFrom(const HumanA&);
-    void cleanUp();
+    Weapon& _weapon;
 };
 
 #endif // HUMANA_H

@@ -16,7 +16,6 @@ IDFLAGS	 := -I$(INC_DIR)
 
 # HERE TO SRC FILES
 SRC :=	main.cpp \
-		Zombie.h \
 		Zombie.cpp \
 		zombieHorde.cpp \
 	

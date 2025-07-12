@@ -1,7 +1,7 @@
 # HERE TO PROJECT NAME
 NAME		:= BraiiiiiiinnnzzzZ
 CXX		 := c++
-CXXFLAGS	:= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS	:= -Wall -Wextra -Werror -std=c++98 -pedantic
 OPT		 := -O2
 RM		  := rm -rf
 DEFINE	  := -DDEBUG_MODE=DEBUG_NONE

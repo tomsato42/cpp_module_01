@@ -9,7 +9,7 @@ Harl::~Harl() {
     cleanUp();
 }
 
-Harl::Harl(const Harl &other){
+Harl::Harl(const Harl &other) {
     copyFrom(other);
 }
 
@@ -19,10 +19,6 @@ Harl &Harl::operator=(const Harl &other) {
         copyFrom(other);
     }
     return *this;
-}
-
-static void OutPut(const char *str) {
-    std::cout << str << std::endl;
 }
 
 void Harl::complain(std::string level) {
@@ -47,6 +43,10 @@ void Harl::complain(std::string level) {
     }
 }
 
+void OutPut(const std::string &message) {
+    std::cout << message << std::endl;
+}
+
 void Harl::debug() {
     OutPut("I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!");
 }
@@ -66,7 +66,7 @@ void Harl::error() {
 }
 
 void Harl::copyFrom(const Harl &other) {
-    (void)other;
+    (void) other;
 }
 
 void Harl::cleanUp() {

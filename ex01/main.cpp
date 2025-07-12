@@ -3,7 +3,7 @@
 #include <string>
 #include "Zombie.h"
 
-static void DeleteZombieHorde(Zombie *horde, int N) {
+static void DeleteZombieHorde(Zombie *horde, const int N) {
     if (horde) {
         for (int i = 0; i < N; i++) {
             horde[i].announce();
@@ -13,9 +13,10 @@ static void DeleteZombieHorde(Zombie *horde, int N) {
 }
 
 int main() {
+    const int N = 5;
 
     std::cout << "call zombieHorde" << std::endl;
-    Zombie *horde = zombieHorde(5, "Zombie");
-    DeleteZombieHorde(horde, 5);
+    Zombie *horde = zombieHorde(N, "Zombie");
+    DeleteZombieHorde(horde, N);
     return 0;
 }
