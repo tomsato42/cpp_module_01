@@ -13,6 +13,7 @@ int main(const int ac, char** av) {
 
     if (ac != 4) {
         std::cerr << "Usage: ./SedIsForLosers <input_file> <s1> <s2>" << std::endl;
+        return 1;
     }
     const std::string inputFile = av[1];
     const std::string s1 = av[2];
